@@ -1,5 +1,19 @@
 # SNV4 Font Builder
 
+![Version](https://img.shields.io/badge/version-v1.2-blue)
+![GitHub release](https://img.shields.io/github/v/release/BBRodriguez-22/snv4-font-builder)
+![Downloads](https://img.shields.io/github/downloads/BBRodriguez-22/snv4-font-builder/total)
+![License](https://img.shields.io/badge/license-Non--Commercial-red)
+![VirusTotal](https://img.shields.io/badge/VirusTotal-0%20detections-brightgreen)
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![PHP](https://img.shields.io/badge/PHP-8.5.4-blueviolet)
+
+<p align="center">
+  <img src="https://img.shields.io/github/v/release/BBRodriguez-22/snv4-font-builder">
+  <img src="https://img.shields.io/github/downloads/BBRodriguez-22/snv4-font-builder/total">
+  <img src="https://img.shields.io/badge/license-Non--Commercial-red">
+</p>
+
 A **local web-based tool** for converting sound fonts into **SNV4 format**.
 
 Supports automatic conversion from:
