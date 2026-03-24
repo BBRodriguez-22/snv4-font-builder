@@ -1,0 +1,19 @@
+SNV4 Font Builder v1.2
+
+Includes:
+- ZIP upload
+- Smart root detection
+- Audio preview
+- Advanced edit mode
+- Drag-and-drop reorder
+- Light / Dark theme
+- Windows local web UI
+
+Requirements:
+- php-8.5.4-nts-Win32-vs17-x64
+- Visual C++ Redistributable (VS17 / x64)
+
+Security:
+VirusTotal: 0 detections
+SHA256:
+c8b5f4dba88066ab80f7af37132f234b6ba243f0dcf12c91217095f1edcddb18
