@@ -1,0 +1,21 @@
+<?php
+require_once __DIR__ . '/bootstrap.php';
+if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['use_scan_mode'])) { $_SESSION['source_mode']='scan'; unset($_SESSION['job_id'],$_SESSION['selected_root'],$_SESSION['analysis']); }
+$includeExtras=(bool)($_SESSION['include_extras']??false);
+$candidates=$converter->findCandidateRoots($includeExtras);
+$steps=step_state('Import');
+$mode=$_SESSION['source_mode']??'scan';
+$jobId=$_SESSION['job_id']??'';
+?><!doctype html><html><head><meta charset="utf-8"><title>SNV4 Font Builder</title><link rel="stylesheet" href="assets/style.css"></head><body>
+<div class="shell">
+<div class="topbar"><div class="brand"><h1>SNV4 Font Builder <span class="version-tag"><?=h(app_version())?></span></h1><p>Local web UI with ZIP import and audio preview.</p></div><div class="actions"><div class="theme-toggle-wrap"><span class="small">Theme</span><div class="theme-toggle"><button type="button" data-theme-btn="dark">Dark</button><button type="button" data-theme-btn="light">Light</button></div></div><a class="btn-secondary" href="reset.php">Reset Session</a><a class="btn-secondary" href="reset_jobs.php" onclick="return confirm('Delete all temporary ZIP job folders? This will not remove your main output folder.')">Reset Temp Jobs</a></div></div>
+<div class="steps"><?php foreach($steps as $step): ?><div class="step <?=h($step['state'])?>"><?=h($step['label'])?></div><?php endforeach; ?></div>
+<div class="grid two">
+<div class="card"><h2>Import ZIP</h2><form id="zip-upload-form" method="post" action="import.php" enctype="multipart/form-data"><div class="dropzone"><input class="name-input" type="file" name="font_zip" accept=".zip" required><div class="footer-row"><button class="btn" type="submit">Upload ZIP</button></div><div id="upload-progress" class="upload-progress"><div id="upload-progress-text" class="small">Uploading ZIP...</div><div class="progress-bar"><div id="upload-progress-fill" class="progress-bar-fill"></div></div></div><div class="status-panel" style="margin-top:10px;"><div id="status-upload" class="status-line">1. Uploading ZIP</div><div id="status-extract" class="status-line">2. Extracting ZIP</div><div id="status-scan" class="status-line">3. Scanning soundfont roots</div></div></div></form><div class="small" style="margin-top:12px;">ZIPs are extracted into a local job folder.</div></div>
+<div class="card"><h2>Use Existing scan/ Folder</h2><form method="post"><input type="hidden" name="use_scan_mode" value="1"><button class="btn-secondary" type="submit">Use scan/ Mode</button></form><div class="small" style="margin-top:12px;">Fallback for already extracted font folders.</div></div>
+</div>
+<div class="card" style="margin-top:18px;"><h2>Current Source</h2><?php if($mode==='zip'&&$jobId!==''): ?><div class="notice">Active ZIP job: <span class="code"><?=h($jobId)?></span></div><?php else: ?><div class="notice">Scanning local folder: <span class="code"><?=h($converter->scanDir)?></span></div><?php endif; ?></div>
+<div class="card" style="margin-top:18px;"><div class="topbar" style="margin-bottom:12px;"><div class="brand"><h1 style="font-size:20px;">Detected Font Roots</h1><p>Select the best candidate to continue.</p></div></div><?php if(!$candidates): ?><div class="empty">No candidate roots found yet.</div><?php else: ?><div class="list"><?php foreach($candidates as $candidate): ?><form class="candidate" method="post" action="review.php"><input type="hidden" name="path" value="<?=h($candidate['path'])?>"><div><strong><?=h($candidate['name'])?></strong><div class="small"><?=h($candidate['display'])?></div><div style="margin-top:8px;"><span class="pill">WAV <?=h((string)$candidate['wav_count'])?></span> <span class="pill">Score <?=h((string)$candidate['score'])?></span></div></div><button class="btn" type="submit">Select</button></form><?php endforeach; ?></div><?php endif; ?></div>
+</div>
+<div class="playerbar"><div class="playerpanel"><div class="trackname" id="now-playing">No preview playing</div><div class="actions"><button class="btn-ghost" type="button" onclick="stopPreview()">Stop</button></div><audio id="global-audio" controls preload="none"></audio></div></div>
+<script src="assets/app.js"></script></body></html>

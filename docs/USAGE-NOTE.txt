@@ -1,0 +1,6 @@
+This tool does not provide sound fonts.
+
+Users must own all sound fonts used with this tool.
+Please respect original creators, sellers, and license terms.
+
+This project is intended to help organize and convert fonts users already have permission to use.

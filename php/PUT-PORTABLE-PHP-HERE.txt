@@ -1,0 +1,15 @@
+Place the FULL official PHP ZIP contents in this folder.
+
+Required PHP:
+php-8.5.4-nts-Win32-vs17-x64
+
+Official downloads page:
+https://www.php.net/downloads.php
+
+Direct archive:
+https://downloads.php.net/~windows/releases/archives/php-8.5.4-nts-Win32-vs17-x64.zip
+
+You may also need the Visual C++ Redistributable (VS17 / x64).
+
+Do not copy only php.exe.
+Extract the full PHP ZIP here.
