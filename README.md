@@ -108,33 +108,7 @@ Required:
 
 ### 4. Run the tool
 
-Official page:  
-https://www.php.net/downloads.php  
-
-Direct download:  
-https://downloads.php.net/~windows/releases/archives/php-8.5.4-nts-Win32-vs17-x64.zip  
-
----
-
-### 2. Install PHP
-
-- Extract the FULL ZIP
-- Copy contents into the `/php` folder inside this project
-
-⚠️ Do NOT copy only `php.exe`
-
----
-
-### 3. Install Visual C++
-
-Required:
-- Microsoft Visual C++ Redistributable (VS17 / x64)
-
----
-
-### 4. Run the tool
 start-web.bat
-
 
 This will:
 - start the local PHP server
