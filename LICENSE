@@ -1,19 +1,26 @@
-SNV4 Font Builder v1.2
+SNV4 Font Builder License (Non-Commercial)
 
-Includes:
-- ZIP upload
-- Smart root detection
-- Audio preview
-- Advanced edit mode
-- Drag-and-drop reorder
-- Light / Dark theme
-- Windows local web UI
+Copyright (c) 2026 BBRodriguez-22
 
-Requirements:
-- php-8.5.4-nts-Win32-vs17-x64
-- Visual C++ Redistributable (VS17 / x64)
+Permission is hereby granted to any person obtaining a copy of this software to use it for personal, non-commercial purposes, subject to the following conditions:
 
-Security:
-VirusTotal: 0 detections
-SHA256:
-c8b5f4dba88066ab80f7af37132f234b6ba243f0dcf12c91217095f1edcddb18
+1. You may use this software for personal use.
+2. You may modify this software for personal use.
+
+Restrictions:
+
+1. You may NOT sell this software.
+2. You may NOT use this software, or any part of it, in any commercial product or service.
+3. You may NOT redistribute this software without giving proper credit to the original author.
+
+Sound Fonts:
+
+This project does NOT include any sound fonts.
+
+All sound fonts used with this tool remain the property of their respective creators. Users are responsible for ensuring they have the legal right to use any sound fonts with this software.
+
+Disclaimer:
+
+This software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+In no event shall the author be liable for any claim, damages, or other liability arising from, out of, or in connection with the software or the use or other dealings in the software.
